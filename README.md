@@ -22,7 +22,7 @@ This repository contains codes for hands-on purpose during training session.
   Perform Multiclass Classification by using K Nearest Neighbour.
 - [9-0_K Means Clustering 1](https://github.com/skymindglobal/machine-learning-fundamentals/blob/master/solution/9-0_K%20Means%20Clustering%201.ipynb):
   Perform Unsupervised Clustering by using K Means Clustering.
-- [9-0_K Means Clustering 2](https://github.com/skymindglobal/machine-learning-fundamentals/blob/master/solution/9-1_K%20Means%20Clustering%202%20.ipynb):
+- [9-1_K Means Clustering 2](https://github.com/skymindglobal/machine-learning-fundamentals/blob/master/solution/9-1_K%20Means%20Clustering%202%20.ipynb):
   Use K Means Clustering to reduce colour space of an image.
 - [10-0_Principal Component Analysis (PCA)](https://github.com/skymindglobal/machine-learning-fundamentals/blob/master/solution/10-0_Principal%20Component%20Analysis%20(PCA).ipynb):
   Perform Dimension Reduction and Data visualization by using Principal Component Analysis (PCA).
