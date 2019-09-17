@@ -1,4 +1,4 @@
-# Machine Learning Fundamentals Hands-On Session
+# Machine Learning Fundamentals Lab
 This repository contains jupyter notebooks used for training during the hands-on session.
 ## Contents
 
