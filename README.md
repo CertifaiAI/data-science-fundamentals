@@ -1,5 +1,5 @@
-# Machine Learning Fundamentals Training Materials
-This repository contains codes for hands-on purpose during training session.
+# Machine Learning Fundamentals Hands-On Session
+This repository contains jupyter notebooks used for training during the hands-on session.
 ## Contents
 
 - [1-0_Linear Algebra](https://github.com/skymindglobal/machine-learning-fundamentals/blob/master/solution/1-0_Linear%20Algebra.ipynb):
@@ -28,22 +28,24 @@ This repository contains codes for hands-on purpose during training session.
   Perform Dimension Reduction and Data visualization by using Principal Component Analysis (PCA).
 
 ## Dependencies
-### Preferred kernel
-Python 3
+### Preferred kernel and IDE
+Python 3 and Jupyter Notebook
 
-### Preferred IDE
-Jupyter Notebook
+### Installation on Windows 10
+If you do not have python on your machine, download <b>miniconda</b> from [here](https://docs.conda.io/en/latest/miniconda.html).
 
-### Python modules that you need:
+After installing miniconda, install the required python modules required for this hands-on session.
+```sh
+conda install --file requirements.txt -y
+```
 
-- scikit learn
-- numpy
-- pandas
-- scipy
-- matplotlib
-- seaborn
-- opencv
+If you already have python on your machine, try installing the python modules and proceed only if all modules are installed successfully.
+```sh
+python -m pip install --r requirements.txt
+```
 
-
+All modules will be installed succesffully except OpenCV installation will fail. Install manually using
+```sh
+python -m pip install opencv-python==3.4.2.16
+```
   
-
