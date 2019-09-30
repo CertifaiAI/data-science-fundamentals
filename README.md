@@ -29,7 +29,7 @@ This repository contains jupyter notebooks used for training during the hands-on
 
 ## Dependencies
 ### Preferred kernel and IDE
-Python 3 and Jupyter Notebook
+<b>Python 3.5</b> or newer and <b>Jupyter Notebook</b>
 
 ### Installation on Windows 10
 If you do not have python on your machine, download <b>miniconda</b> from [here](https://docs.conda.io/en/latest/miniconda.html).
@@ -44,8 +44,21 @@ If you already have python on your machine, try installing the python modules an
 python -m pip install --r requirements.txt
 ```
 
-All modules will be installed succesffully except OpenCV installation will fail. Install manually using
+All modules will be installed successfully except OpenCV installation will fail. Install manually using
 ```sh
 python -m pip install opencv-python==3.4.2.16
 ```
-  
+
+### Getting started
+At Windows command prompt or Anaconda Prompt, launch jupyter notebook by 
+```sh
+jupyter notebook
+```
+
+and go to the directory where you have downloaded this repository.
+
+
+OR directly open Jupyter notebook server at the PATH with the downloaded repository by 
+```sh
+jupyter notebook <YOUR-PATH-DOWNLOADED-REPOSITORY>
+```
