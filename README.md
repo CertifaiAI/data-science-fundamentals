@@ -29,7 +29,22 @@ This repository contains jupyter notebooks used for training during the hands-on
 
 ## Dependencies
 ### Preferred kernel and IDE
-<b>Python 3.5</b> or newer and <b>Jupyter Notebook</b>
+<b>Python 3.7.3</b> or newer and <b>Jupyter Notebook</b>
+
+If you already have Anaconda, you can create a new virtual environment with Python 3.7.3 by and name your environment name
+```sh
+conda create --name <REPLACE-NAME> -y
+```
+
+Go into your newly created python3.7.3 environment by
+```sh
+conda activate <REPLACE-NAME>
+```
+
+Go out by 
+```sh
+conda deactivate
+```
 
 ### Installation on Windows 10
 If you do not have python on your machine, download <b>miniconda</b> from [here](https://docs.conda.io/en/latest/miniconda.html).
