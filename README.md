@@ -2,11 +2,11 @@
 This repository contains Jupyter notebooks used for training during the hands-on session.
 ## Contents
 
-- [01-0_NumPy Quickstart.ipynb](solution/01-0_NumPy%Quickstart.ipynb):
+- [01-0_NumPy Quickstart.ipynb](solution/01-0_NumPy%20Quickstart.ipynb):
   Create matrics and apply mathematical operations on it.
-- [01-1_Linear Algebra with NumPy.ipynb](solution/01-1_Linear%Algebra%with%NumPy.ipynb)
+- [01-1_Linear Algebra with NumPy.ipynb](solution/01-1_Linear%20Algebra%20with%20NumPy.ipynb)
   Discussion of basic matrix operations and Gaussian elimination. 
-- [01-2_Statistics and Probability.ipynb](solution/01-2_Statistics%and%Probability.ipynb)
+- [01-2_Statistics and Probability.ipynb](solution/01-2_Statistics%20and%20Probability.ipynb)
   Fundamentals of probability, probability distributions, Bayes' theorem and the Central Limit Theorem.
 - [02-0_Data Exploration and Data Transformation](solution/02-0_Data%20Exploration%20and%20Data%20Transformation.ipynb):
   Explore a dataset and perform data visualization and data transformation.
