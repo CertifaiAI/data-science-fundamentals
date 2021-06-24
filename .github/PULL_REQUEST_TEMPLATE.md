@@ -12,6 +12,7 @@ Please delete options that are not relevant.
 - [ ] Bug fix (Non-breaking change which fixes an issue)
 - [ ] New feature (Non-breaking change which adds functionality)
 - [ ] Breaking change (Fix or feature that would cause existing functionality to not work as expected)
+- [ ] Documentation update
 - [ ] Adding GitHub Action capabilities
 
 # Tested on?
