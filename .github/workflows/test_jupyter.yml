@@ -2,19 +2,19 @@ name: Test Jupyter Notebook
 on:
   push:
     branches:
-      - main
+      - faris_update_config
 
   pull_request:
     types: [synchronize, review_requested]
 
 jobs:
   build:
-    name: Test solution folder with Python ${{ matrix.version }}
-    runs-on: ubuntu-latest
+    name: Test solution folder with ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}-latest
     strategy:
       fail-fast: false
       matrix: 
-        version: [3.7.3, 3.8, 3.9]
+        os: [ubuntu, windows, macos]
 
     steps:
       - name: Checkout Repo
@@ -27,7 +27,7 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           activate-environment: ml-fundamental
-          python-version: ${{ matrix.version }}
+          environment-file: environment.yml
 
       - name: Install dependencies
         shell: bash -l {0}
