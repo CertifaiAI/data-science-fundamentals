@@ -2,7 +2,7 @@ name: Test Jupyter Notebook
 on:
   push:
     branches:
-      - faris_update_config
+      - main
 
   pull_request:
     types: [synchronize, review_requested]
