@@ -29,7 +29,9 @@ This repository contains Jupyter notebooks used for training during the hands-on
 - [04-0_Linear Regression 1](solution/04-0_Linear%20Regression%201.ipynb):
   Predict the house price by using Linear Regression.
 - [04-1_Linear Regression 2](solution/04-1_Linear%20Regression%202.ipynb):
-  Predict the stock price by using Linear Regression.  
+  Predict the stock price by using Linear Regression.
+- [04-2_Linear Regression 3](solution/04-2_Linear%20Regression%203.ipynb):
+  Predict the quantitative measure of disease progression of diabetic patients.
 - [05-0_Logistic Regression ](solution/05-0_Logistic%20Regression.ipynb):
   Perform Binary Classification by using Logistic Regression.
 - [06-0_Support Vector Machines (SVM) ](solution/06-0_Support%20Vector%20Machines(SVM).ipynb):
