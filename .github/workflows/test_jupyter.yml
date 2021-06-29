@@ -1,0 +1,42 @@
+name: Test Jupyter Notebook 
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    types: [synchronize, review_requested]
+
+jobs:
+  build:
+    name: Test solution folder with ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}-latest
+    strategy:
+      fail-fast: false
+      matrix: 
+        os: [ubuntu, windows, macos]
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - shell: bash -l {0}
+        run: echo ${{ runner.os }}
+
+      - name: Setup Conda environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: ml-fundamental
+          environment-file: environment.yml
+
+      - name: Install dependencies
+        shell: bash -l {0}
+        run: |
+          pip install flake8_nb
+          
+      - name: Execute Flake8 to test
+        shell: bash -l {0}
+        run: |
+          for i in solution/**; do 
+            flake8_nb --select=E9,F63,F7 --notebook-cell-format '{nb_path}:code_cell#{code_cell_count}' "$i"
+          done
