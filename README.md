@@ -29,7 +29,9 @@ This repository contains Jupyter notebooks used for training during the hands-on
 - [04-0_Linear Regression 1](solution/04-0_Linear%20Regression%201.ipynb):
   Predict the house price by using Linear Regression.
 - [04-1_Linear Regression 2](solution/04-1_Linear%20Regression%202.ipynb):
-  Predict the stock price by using Linear Regression.  
+  Predict the stock price by using Linear Regression.
+- [04-2_Linear Regression 3](solution/04-2_Linear%20Regression%203.ipynb):
+  Predict the quantitative measure of disease progression of diabetic patients.
 - [05-0_Logistic Regression ](solution/05-0_Logistic%20Regression.ipynb):
   Perform Binary Classification by using Logistic Regression.
 - [06-0_Support Vector Machines (SVM) ](solution/06-0_Support%20Vector%20Machines(SVM).ipynb):
@@ -47,14 +49,16 @@ This repository contains Jupyter notebooks used for training during the hands-on
 
 ## Dependencies
 ### Preferred kernel and IDE
-<b>Python 3.7.3</b> or newer and <b>Jupyter Notebook</b>
+***Python 3.7.3 and Jupyter Notebook***
 
-If you already have Anaconda, you can create a new virtual environment with Python 3.7.3 by and name your environment name
+If you do not have **Anaconda/miniconda** on your machine, download **miniconda** from [here](https://docs.conda.io/en/latest/miniconda.html).
+
+If you already have Anaconda/miniconda, you can create a new virtual environment based on the given environment file, `environment.yml` and name your environment. The environment file will automatically download Python 3.7.3 and all the necessary packages into the newly created environment. 
 ```sh
-conda create --name <REPLACE-NAME> -y
+conda env create -n <REPLACE-NAME> -f environment.yml
 ```
 
-Go into your newly created python3.7.3 environment by
+Go into your newly created Python 3.7.3 environment by
 ```sh
 conda activate <REPLACE-NAME>
 ```
@@ -62,24 +66,6 @@ conda activate <REPLACE-NAME>
 Deactivate the newly created environment using 
 ```sh
 conda deactivate
-```
-
-### Installation on Windows 10
-If you do not have Python on your machine, download <b>miniconda</b> from [here](https://docs.conda.io/en/latest/miniconda.html).
-
-After installing miniconda, install the required python modules required for this hands-on session.
-```sh
-conda install --file requirements.txt -y
-```
-
-If you already have python on your machine, try installing the python modules and proceed only if all modules are installed successfully.
-```sh
-python -m pip install --r requirements.txt
-```
-
-All modules will be installed successfully except OpenCV installation will fail. Install manually using
-```sh
-python -m pip install opencv-python==3.4.2.16
 ```
 
 ### Getting started
