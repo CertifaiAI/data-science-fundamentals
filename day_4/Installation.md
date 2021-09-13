@@ -13,7 +13,7 @@ This guide will show the installation flow for PostgreSQL Version 13.4. You can 
     - [3.1 Install PostgreSQL](#31-install-postgresql)
     - [3.2 Set Password for `postgres` user](#32-set-password-for-postgres-user)
     - [3.2 Install pgAdmin 4](#32-install-pgadmin-4)
-  - [4.0 Connect to PostgreSQL local database](#40-connect-to-postgresql-local-database)
+  - [4.0 Connect to PostgreSQL local database server](#40-connect-to-postgresql-local-database-server)
     - [4.1 Using SQL Shell (**Windows**)](#41-using-sql-shell-windows)
     - [4.2 Using Terminal](#42-using-terminal)
       - [**Windows**](#windows)
@@ -223,10 +223,10 @@ sudo apt install pgadmin4
 ![image](./assets/Installation/Install_pgAdmin_Ubuntu_03.png)
 
 
-## 4.0 Connect to PostgreSQL local database
-This guide will show you how to connect to the database in different methods.
+## 4.0 Connect to PostgreSQL local database server
+This guide will show you how to connect to the database server in different methods.
 
-Before connecting to the local database, you need to make sure that the PostgreSQL service is running.
+Before connecting to the local database server, you need to make sure that the PostgreSQL service is running.
 
 Step 1: Check service status.
 
@@ -323,7 +323,7 @@ Step 5: Under `Connection` tab, enter `127.0.0.1` for `Host name/address` field 
 
 ![image](./assets/Installation/pgAdmin_Desktop_05.png)
 
-Step 6: If you have successfully connected to the database, you will see a dashboard as shown below.
+Step 6: If you have successfully connected to the database server, you will see a dashboard as shown below.
 
 ![image](./assets/Installation/pgAdmin_Desktop_06.png)
 
