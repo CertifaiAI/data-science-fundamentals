@@ -319,7 +319,7 @@ Step 4: Enter `PostgreSQL` in the `Name` field to give a name to the connection.
 
 ![image](./assets/Installation/pgAdmin_Desktop_04.png)
 
-Step 5: Under `Connection` tab, enter `localhost` for `Host name/address` field and enter the user password for `Password` field.
+Step 5: Under `Connection` tab, enter `127.0.0.1` for `Host name/address` field and enter the user password for `Password` field.
 
 ![image](./assets/Installation/pgAdmin_Desktop_05.png)
 
