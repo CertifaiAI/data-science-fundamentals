@@ -1,7 +1,7 @@
-# Creating Database & SQL Querying
+# Creating Database
 This hands-on guide will teach you how to create a new database and perform SQL querying.
 
-- [Creating Database & SQL Querying](#creating-database--sql-querying)
+- [Creating Database](#creating-database)
   - [1.0 Creating database using psql](#10-creating-database-using-psql)
     - [1.1: Run psql](#11-run-psql)
     - [1.2: Create a database](#12-create-a-database)
@@ -11,6 +11,14 @@ This hands-on guide will teach you how to create a new database and perform SQL 
   - [2.0 Creating table in SQL](#20-creating-table-in-sql)
     - [2.1: Run SQL Statement in psql](#21-run-sql-statement-in-psql)
     - [2.2: List available tables](#22-list-available-tables)
+- [SQL Querying](#sql-querying)
+  - [1.0 `CREATE TABLE`](#10-create-table)
+  - [2.0 `INSERT`](#20-insert)
+  - [4.0 `SELECT`](#40-select)
+  - [3.0 `UPDATE`](#30-update)
+  - [5.0 `DELETE`](#50-delete)
+  - [6.0 `JOIN`](#60-join)
+  - [7.0 `DROP`](#70-drop)
 
 ## 1.0 Creating database using psql
 ### 1.1: Run psql
@@ -207,3 +215,283 @@ practice_1=# \dt
 
 From the output result, you can see that the `country` table is created by the `postgres` user (the default database user you are using).
 
+# SQL Querying
+
+## 1.0 `CREATE TABLE`
+
+<!-- **General SQL Syntax:**
+```SQL
+CREATE TABLE [IF NOT EXISTS] <table_name> (
+    <column1> <datatype(length)> <column_constraints...>,
+    <column2> <datatype(length)> <column_constraints...>,
+    <table_constraints...>
+);
+``` -->
+
+**SQL:**
+```SQL
+CREATE TABLE country
+(
+    country_id INTEGER,
+    country_name VARCHAR(50) NOT NULL,
+    country_code VARCHAR(2) UNIQUE NOT NULL,
+    population INTEGER,
+    yearly_change NUMERIC(5, 2),
+    PRIMARY KEY (country_id)
+);
+```
+
+**SQL:**
+```SQL
+CREATE TABLE IF NOT EXISTS subcountry
+(
+    subcountry_id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    country_id INTEGER,
+    subcountry_name VARCHAR(100) NOT NULL,
+    subcountry_code VARCHAR(2) NOT NULL,
+    subcountry_level VARCHAR(100),
+    FOREIGN KEY (country_id)
+        REFERENCES country(country_id)
+);
+```
+
+**Example output:**
+```
+```
+
+<!-- 
+https://www.postgresqltutorial.com/postgresql-identity-column/
+https://www.postgresqltutorial.com/postgresql-foreign-key/
+ -->
+
+## 2.0 `INSERT`
+
+<!-- 
+Insert malaysia & indonesia
+Insert at least 3 subcountry for both country
+https://www.worldometers.info/world-population/population-by-country/
+ -->
+
+**SQL:**
+```SQL
+INSERT INTO country (country_id, country_name, country_code, population, yearly_change)
+VALUES (1, 'Malaysia', 'MY', 32365999, 1.30);
+```
+
+**SQL:**
+```SQL
+INSERT INTO country (country_id, country_name, country_code, population, yearly_change)
+VALUES
+    (2, 'Singapore', 'SG', 5850342, 0.79),
+    (3, 'Indonesia', 'ID', 126476461, -0.30);
+```
+
+**SQL:**
+```SQL
+INSERT INTO subcountry (country_id, subcountry_name, subcountry_code, subcountry_level)
+VALUES
+    (1, 'Johor', '01', 'State'),
+    (1, 'Kedah', '02', 'State'),
+    (1, 'Kelantan', '03', 'State');
+```
+
+**SQL:**
+```SQL
+INSERT INTO subcountry (country_id, subcountry_name, subcountry_code, subcountry_level)
+VALUES
+    (3, 'Aceh', 'AC', 'Special Region'),
+    (3, 'Bali', 'BA', 'Province'),
+    (3, 'Bangka Belitung', 'BB', 'Province'),
+    (3, 'Bengkulu', 'BE', 'Province');
+```
+
+**Example output:**
+```
+```
+
+<!-- 
+https://www.enterprisedb.com/postgres-tutorials/postgresql-query-introduction-explanation-and-50-examples
+https://www.postgresqltutorial.com/postgresql-insert/
+https://www.postgresqltutorial.com/postgresql-insert-multiple-rows/
+ -->
+
+
+## 4.0 `SELECT`
+
+<!-- 
+Select country table
+select subcountry table
+select with condition
+ -->
+
+**SQL:**
+```SQL
+SELECT * FROM country;
+```
+
+**SQL:**
+```SQL
+SELECT subcountry_name, subcountry_level
+FROM subcountry;
+```
+
+**SQL:**
+```SQL
+SELECT * FROM country
+ORDER BY population ASC;
+```
+
+**SQL:**
+```SQL
+SELECT * FROM subcountry
+WHERE country_id = 1;
+```
+
+<!-- 
+https://www.postgresqltutorial.com/postgresql-select/
+ -->
+
+## 3.0 `UPDATE`
+
+<!-- 
+Update kuala lumpur + population
+ -->
+
+
+**SQL:**
+```SQL
+UPDATE country
+SET population = 273523615,
+    yearly_change = 1.07
+WHERE country_id = 3
+RETURNING *;
+```
+
+**SQL:**
+```SQL
+INSERT INTO subcountry (country_id, subcountry_name, subcountry_code)
+VALUES
+    (1, 'Melaka', '04'),
+    (1, 'Negeri Sembilan', '05'),
+    (1, 'Pahang', '06');
+```
+
+**SQL:**
+```SQL
+UPDATE subcountry
+SET subcountry_level = 'State'
+WHERE country_id = 1
+RETURNING *;
+```
+
+**Example output:**
+```
+```
+
+<!-- 
+https://www.postgresqltutorial.com/postgresql-update/
+https://stackoverflow.com/questions/18936896/updating-multiple-rows-with-different-primary-key-in-one-query-in-postgresql
+ -->
+
+
+
+## 5.0 `DELETE`
+
+<!-- 
+DELETE a subcountry
+ -->
+
+**SQL:**
+```SQL
+DELETE FROM subcountry
+WHERE subcountry_name = 'Aceh'
+RETURNING *;
+```
+
+<!-- 
+https://www.postgresqltutorial.com/postgresql-delete/
+ -->
+
+## 6.0 `JOIN`
+<!-- 
+Select join 2 tables
+inner join
+left join
+full join
+ -->
+
+**SQL:**
+```SQL
+INSERT INTO country (country_id, country_name, country_code, population, yearly_change)
+VALUES
+    (4, 'Japan', 'JP', 126476461, -0.30),
+    (5, 'Australia', 'AU', 25499884, 1.18);
+
+INSERT INTO subcountry (subcountry_name, subcountry_code, subcountry_level)
+VALUES
+    ('Alaska', 'AK', 'State'),
+    ('Alabama', 'AL', 'State'),
+    ('Arkansas', 'AR', 'State');
+```
+
+**SQL:**
+```SQL
+SELECT subcountry_name, subcountry_level, country_name
+FROM subcountry
+INNER JOIN country
+ON subcountry.country_id = country.country_id;
+```
+
+**SQL:**
+```SQL
+SELECT subcountry_name, subcountry_level, country_name
+FROM subcountry
+LEFT JOIN country
+ON subcountry.country_id = country.country_id;
+```
+
+**SQL:**
+```SQL
+SELECT subcountry_name, subcountry_level, country_name
+FROM subcountry
+RIGHT JOIN country
+ON subcountry.country_id = country.country_id;
+```
+
+**SQL:**
+```SQL
+SELECT subcountry_name, subcountry_level, country_name
+FROM subcountry
+FULL JOIN country
+ON subcountry.country_id = country.country_id;
+```
+
+<!-- 
+https://www.postgresqltutorial.com/postgresql-joins/
+ -->
+
+## 7.0 `DROP`
+
+**SQL:**
+```SQL
+DROP TABLE subcountry;
+```
+
+**SQL:**
+```SQL
+DROP TABLE country;
+```
+
+<!-- 
+**General SQL Syntax:**
+```SQL
+```
+
+**SQL:**
+```SQL
+```
+
+**Example output:**
+```
+```
+ -->
