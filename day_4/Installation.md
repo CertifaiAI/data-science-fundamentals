@@ -12,13 +12,11 @@ This guide will show the installation flow for PostgreSQL Version 13.4. You can 
   - [3.0 Installing PostgreSQL (**Ubuntu** or **WSL**)](#30-installing-postgresql-ubuntu-or-wsl)
     - [3.1 Install PostgreSQL](#31-install-postgresql)
     - [3.2 Set Password for `postgres` user](#32-set-password-for-postgres-user)
-    - [3.2 Install pgAdmin 4](#32-install-pgadmin-4)
   - [4.0 Connect to PostgreSQL local database server](#40-connect-to-postgresql-local-database-server)
     - [4.1 Using SQL Shell (**Windows**)](#41-using-sql-shell-windows)
     - [4.2 Using Terminal](#42-using-terminal)
       - [**Windows**](#windows)
       - [**Ubuntu** or **WSL**](#ubuntu-or-wsl)
-    - [4.3 pgAdmin 4 Desktop app (**Windows** or **Ubuntu**)](#43-pgadmin-4-desktop-app-windows-or-ubuntu)
   - [5.0 Others](#50-others)
     - [5.1 Change `postgres` database user password](#51-change-postgres-database-user-password)
   - [Tested on](#tested-on)
@@ -200,29 +198,6 @@ Step 5: Quit the PostgreSQL connection.
 \q
 ```
 
-### 3.2 Install pgAdmin 4
-Step 1: Install the public key for the repository (if not done previously).
-```sh
-sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
-```
-
-![image](./assets/Installation/Install_pgAdmin_Ubuntu_01.png)
-
-Step 2: Create the repository configuration file.
-```sh
-sudo sh -c 'echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" > /etc/apt/sources.list.d/pgadmin4.list && apt update'
-```
-
-![image](./assets/Installation/Install_pgAdmin_Ubuntu_02.png)
-
-Step 3: Install for both desktop and web modes and wait for the installation to finish.
-```sh
-sudo apt install pgadmin4
-```
-
-![image](./assets/Installation/Install_pgAdmin_Ubuntu_03.png)
-
-
 ## 4.0 Connect to PostgreSQL local database server
 This guide will show you how to connect to the database server in different methods.
 
@@ -301,45 +276,6 @@ sudo -u postgres psql
 
 ![image](./assets/Installation/Set_Password_03.png)
 
-### 4.3 pgAdmin 4 Desktop app (**Windows** or **Ubuntu**)
-Step 1: Run pgAdmin 4.
-
-![image](./assets/Installation/pgAdmin_Desktop_01_a.png)
-![image](./assets/Installation/pgAdmin_Desktop_01_b.png)
-
-Step 2: Set a master password. Please remember this master password as you need to use it every time you run pgAdmin 4.
-
-![image](./assets/Installation/pgAdmin_Desktop_02.png)
-
-Step 3: To connect a server, right click `Servers` > `Create` > `Server...`.
-
-![image](./assets/Installation/pgAdmin_Desktop_03.png)
-
-Step 4: Enter `PostgreSQL` in the `Name` field to give a name to the connection.
-
-![image](./assets/Installation/pgAdmin_Desktop_04.png)
-
-Step 5: Under `Connection` tab, enter `127.0.0.1` for `Host name/address` field and enter the user password for `Password` field.
-
-![image](./assets/Installation/pgAdmin_Desktop_05.png)
-
-Step 6: If you have successfully connected to the database server, you will see a dashboard as shown below.
-
-![image](./assets/Installation/pgAdmin_Desktop_06.png)
-
-<!-- ### 4.4 pgAdmin 4 Web app (**Ubuntu** or **WSL**)
-
-Step 1: Configure the webserver, if you installed pgadmin4-web.
-```sh
-sudo /usr/pgadmin4/bin/setup-web.sh
-```
-
-Step 2: Enter an email address.
-
-
-Step 3: Enter a password for the email address.
-
-Step 4: Wait for the server to run. -->
 
 ## 5.0 Others
 ### 5.1 Change `postgres` database user password
