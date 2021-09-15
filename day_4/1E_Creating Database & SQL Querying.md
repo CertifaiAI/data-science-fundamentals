@@ -1,7 +1,7 @@
-# PostgreSQL Database & SQL Querying
+# Creating Database & SQL Querying
 This hands-on guide will teach you how to create a new database and perform SQL querying.
 
-- [PostgreSQL Database & SQL Querying](#postgresql-database--sql-querying)
+- [Creating Database & SQL Querying](#creating-database--sql-querying)
   - [1.0 Creating database using psql](#10-creating-database-using-psql)
     - [1.1: Run psql](#11-run-psql)
     - [1.2: Create a database](#12-create-a-database)
@@ -9,8 +9,8 @@ This hands-on guide will teach you how to create a new database and perform SQL 
     - [1.4: Switch database connection](#14-switch-database-connection)
     - [1.5: Reconnect database](#15-reconnect-database)
   - [2.0 Creating table in SQL](#20-creating-table-in-sql)
-    - [3.1: Run SQL Statement](#31-run-sql-statement)
-    - [3.2: List available tables](#32-list-available-tables)
+    - [2.1: Run SQL Statement in psql](#21-run-sql-statement-in-psql)
+    - [2.2: List available tables](#22-list-available-tables)
 
 ## 1.0 Creating database using psql
 ### 1.1: Run psql
@@ -28,7 +28,7 @@ sudo -u postgres psql
 ```
 
 **Example output:**
-```console
+```
 D:\>psql -d postgres -U postgres -W
 Password:
 psql (13.4)
@@ -46,7 +46,7 @@ postgres=#
 For Windows users, you can ignore the WARNING message displayed here. If you want to resolve this WARNING, you can run `chcp 1252` before running psql.
 
 **Solution:**
-```console
+```
 C:\WINDOWS\system32>chcp 1252
 Active code page: 1252
 
@@ -69,7 +69,7 @@ CREATE DATABASE practice_1;
 ```
 
 **Example output:**
-```console
+```
 postgres=# CREATE DATABASE practice_1;
 CREATE DATABASE
 ```
@@ -84,7 +84,7 @@ You can run the command below in psql to show all the available databases in you
 ```
 
 **Example output:**
-```console
+```
 postgres=# \l
                               List of databases
     Name    |  Owner   | Encoding | Collate |  Ctype  |   Access privileges
@@ -119,7 +119,7 @@ Now you will use the command below to switch the connection to the new `practice
 ```
 
 **Example output:**
-```console
+```
 postgres=#  \c practice_1
 Password:
 SSL connection (protocol: TLSv1.3, cipher: TLS_AES_256_GCM_SHA384, bits: 256, compression: off)
@@ -139,7 +139,7 @@ psql -d practice_1 -U postgres -W
 ```
 
 **Example output:**
-```console
+```
 D:\>psql -d practice_1 -U postgres -W
 Password:
 psql (13.4)
@@ -150,7 +150,7 @@ practice_1=#
 
 ## 2.0 Creating table in SQL
 
-### 3.1: Run SQL Statement
+### 2.1: Run SQL Statement in psql
 
 Paste the SQL statement below in the psql terminal and hit `Enter`. This SQL statement will create a SQL table in the `practice_1` database.
 
@@ -186,7 +186,7 @@ You can run any SQL statement using psql. Remember to put `;` (semicolon) at the
 
 > Semicolon is the standard way to separate each SQL statement in database systems that allow more than one SQL statement to be executed in the same call to the server.
 
-### 3.2: List available tables
+### 2.2: List available tables
 
 To verify or check existing tables, you can use the command below in psql. It will list out all the available tables created in this database.
 
@@ -196,7 +196,7 @@ To verify or check existing tables, you can use the command below in psql. It wi
 ```
 
 **Example output:**
-```console
+```
 practice_1=# \dt
           List of relations
  Schema |  Name   | Type  |  Owner
