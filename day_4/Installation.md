@@ -179,21 +179,28 @@ sudo service postgresql start
 
 ![image](./assets/Installation/Set_Password_02.png)
 
-Step 3: Connect to PostgreSQL using `postgres` database user.
+Step 3: Switch to `postgres` system user, enter the password when prompt.
 ```console
-sudo -u postgres psql
+su postgres
 ```
 
 ![image](./assets/Installation/Set_Password_03.png)
 
-Step 4: Use the command below to insert a new password (use the same password as Step 1).
+Step 4: Run psql
 ```console
-\password
+psql
 ```
 
 ![image](./assets/Installation/Set_Password_04.png)
 
-Step 5: Quit the PostgreSQL connection.
+Step 5: Use the command below to insert a new password (use the same password as Step 1).
+```console
+\password
+```
+
+![image](./assets/Installation/Set_Password_05.png)
+
+Step 6: Quit the PostgreSQL connection.
 ```console
 \q
 ```
@@ -269,12 +276,14 @@ Then enter the password you have set just now.
 ![image](./assets/Installation/Using_Terminal_Windows_01.png)
 
 #### **Ubuntu** or **WSL**
-Step 1: Use the command below.
+Step 1: Use the commands below and enter the password you have set previously.
+
 ```console
-sudo -u postgres psql
+su postgres
+psql
 ```
 
-![image](./assets/Installation/Set_Password_03.png)
+![image](./assets/Installation/Set_Password_04.png)
 
 
 ## 5.0 Others
