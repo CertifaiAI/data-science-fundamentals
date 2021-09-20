@@ -786,8 +786,7 @@ Firstly, create a new database with the name `exercise_1`.
 
 **SQL:**
 ```SQL
--- TODO: replace <database_name>
-CREATE DATABASE <database_name>;
+CREATE DATABASE exercise_1;
 ```
 
 Then switch the psql database connection to the newly created one.
@@ -813,7 +812,11 @@ Create the 3 required tables with the data types and the constraints defined bel
 ```SQL
 CREATE TABLE university
 (
-    -- TODO: write your SQL statement here
+    university_id INTEGER,
+    university_name VARCHAR(255) UNIQUE NOT NULL,
+    phone_num VARCHAR(255),
+    email VARCHAR(255),
+    PRIMARY KEY (university_id)
 );
 ```
 
@@ -828,7 +831,10 @@ CREATE TABLE university
 ```SQL
 CREATE TABLE intern_position
 (
-    -- TODO: write your SQL statement here
+    position_id INTEGER,
+    position_name VARCHAR(255) UNIQUE NOT NULL,
+    allowance INTEGER NOT NULL,
+    PRIMARY KEY (position_id)
 );
 ```
 
@@ -847,7 +853,18 @@ CREATE TABLE intern_position
 ```SQL
 CREATE TABLE intern
 (
-    -- TODO: write your SQL statement here
+    intern_id INTEGER,
+    university_id INTEGER,
+    position_id INTEGER,
+    intern_name VARCHAR(255) NOT NULL,
+    intern_duration INTEGER,
+    start_date DATE,
+    end_date DATE,
+    PRIMARY KEY (intern_id),
+    FOREIGN KEY (university_id)
+        REFERENCES university(university_id),
+    FOREIGN KEY (position_id)
+        REFERENCES intern_position(position_id)
 );
 ```
 
@@ -866,19 +883,18 @@ Run these SQL statements to import the CSV data. Replace the `<input_parent_fold
 
 **SQL:**
 ```SQL
--- TODO: replace <input_parent_folder>
 COPY university(university_id, university_name, phone_num, email)
-FROM '<input_parent_folder>\university.csv'
+FROM 'D:\Dev-Projects\machine-learning-fundamentals\data\university.csv'
 DELIMITER ','
 CSV HEADER;
 
 COPY intern_position(position_id, position_name, allowance)
-FROM '<input_parent_folder>\intern_position.csv'
+FROM 'D:\Dev-Projects\machine-learning-fundamentals\data\intern_position.csv'
 DELIMITER ','
 CSV HEADER;
 
 COPY intern(intern_id, position_id, university_id, intern_name, intern_duration, start_date, end_date)
-FROM '<input_parent_folder>\intern.csv'
+FROM 'D:\Dev-Projects\machine-learning-fundamentals\data\intern.csv'
 DELIMITER ','
 CSV HEADER;
 ```
@@ -904,10 +920,11 @@ Now, let's insert 3 more `intern` data rows into the `intern` table for the `JOI
 
 **SQL:**
 ```SQL
--- TODO: replace <table_name(columns...)> and <values...>
-INSERT INTO <table_name(columns...)>
+INSERT INTO intern(intern_id, position_id, university_id, intern_name, start_date, end_date)
 VALUES
-    <values...>
+    (6, 3, 2, 'Teoh Yuen Hoe', '01-07-2022', '01-09-2022'),
+    (7, 2, 3, 'Goh Yi Yin', '01-07-2022', '01-12-2022'),
+    (8, 3, 3, 'Kishor', '01-07-2022', '01-12-2022')
 RETURNING *;
 ```
 
@@ -929,10 +946,9 @@ Provide the SQL statement to update the intern data who are from the `University
 
 **SQL:**
 ```SQL
--- TODO: replace <table_name>, <column = value> and <condition>
-UPDATE <table_name>
-SET <column = value>
-WHERE <condition>
+UPDATE intern
+SET intern_duration = 3
+WHERE university_id = 2
 RETURNING *;
 ```
 
@@ -952,10 +968,9 @@ Provide the SQL statement to update the intern data who are from the `University
 
 **SQL:**
 ```SQL
--- TODO: replace <table_name>, <column = value> and <condition>
-UPDATE <table_name>
-SET <column = value>
-WHERE <condition>
+UPDATE intern
+SET intern_duration = 6
+WHERE university_id = 1 OR university_id = 3
 RETURNING *;
 ```
 
@@ -977,9 +992,8 @@ From the data in the `intern` table, you can observe that no intern is taking th
 
 **SQL:**
 ```SQL
--- TODO: replace <table_name> and <condition>
-DELETE FROM <table_name>
-WHERE <condition>
+DELETE FROM intern_position
+WHERE position_name = 'Data Engineer'
 RETURNING *;
 ```
 
@@ -999,11 +1013,10 @@ Provide the SQL statement that will produce a table result containing `intern_na
 
 **SQL:**
 ```SQL
--- TODO: replace <columns...>, <table_name> and <foreign_key = primary_key>
-SELECT <columns...>
-FROM <table_name>
-INNER JOIN <table_name>
-ON <foreign_key = primary_key>;
+SELECT intern_name, position_name, allowance
+FROM intern
+INNER JOIN intern_position
+ON intern.position_id = intern_position.position_id;
 ```
 
 **Example output:**
@@ -1027,7 +1040,12 @@ Let's try to join 3 tables instead of 2 tables to give a better data representat
 
 **SQL:**
 ```SQL
--- TODO: provide your SQL statement
+SELECT intern_name, university_name, position_name, allowance
+FROM intern
+INNER JOIN intern_position
+ON intern.position_id = intern_position.position_id
+INNER JOIN university
+ON intern.university_id = university.university_id;
 ```
 
 **Example output:**
@@ -1051,11 +1069,15 @@ Now, use the SQL statement below to export the previous `INNER JOIN` query to a 
 
 **SQL:**
 ```SQL
--- TODO: replace <output_path>
 COPY (
-    -- TODO: provide the previous inner join SQL statement
+    SELECT intern_name, university_name, position_name, allowance
+    FROM intern
+    INNER JOIN intern_position
+    ON intern.position_id = intern_position.position_id
+    INNER JOIN university
+    ON intern.university_id = university.university_id
 )
-TO <output_path>
+TO 'D:\Dev-Projects\machine-learning-fundamentals\data\intern_data.csv'
 DELIMITER ','
 CSV HEADER;
 ```
