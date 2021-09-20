@@ -20,22 +20,23 @@ This guide will show the installation flow for PostgreSQL Version 13.4. You can 
   - [5.0 Others](#50-others)
     - [5.1 Change `postgres` database user password](#51-change-postgres-database-user-password)
   - [Tested on](#tested-on)
+  - [Contributors](#contributors)
   - [References](#references)
 
 ## 1.0 Minimum System Requirements
 ### 1.1 Windows 10 (64-bit)
 - 1 GHz processor
-- 512MB Harddisk space
+- 512MB Hard Disk space
 - 4GB Ram
 
 ### 1.2 Ubuntu
 - 1 GHz processor
-- 512MB Harddisk space
+- 512MB Hard Disk space
 - 2GB Ram
 
 ## 2.0 Installing PostgreSQL (**Windows**)
 ### 2.1 Download Installer
-Go to official download site [here](https://www.postgresql.org/download/).
+Go to the official download site [here](https://www.postgresql.org/download/).
 
 Step 1: Click "Windows"
 
@@ -71,7 +72,7 @@ Step 4: Make sure that the `Data Directory` is a subdirectory of the `Installati
 ![image](./assets/Installation/Run_Installer_Windows_04.png)
 
 Step 5: Provide a password for the default database user. The username of this user will be `postgres`.
-The password can be changed later, you can use `admin` as your password temporally for convenience.
+The password can be changed later, you can use `admin` as your password temporarily for convenience.
 
 ![image](./assets/Installation/Run_Installer_Windows_05.png)
 
@@ -100,7 +101,7 @@ Step 11: Uncheck the `Launch Stack Builder at exit?`. No extra tools need to be 
 ![image](./assets/Installation/Run_Installer_Windows_11.png)
 
 ### 2.3 Add path to PATH environment variable
-The purpose of doing this is to enable PostgreSQL command running on Windows Command Prompt or other terminal applications.
+The purpose of doing this is to enable PostgreSQL commands running on Windows Command Prompt or other terminal applications.
 
 Step 1: Search "Edit the system environment variables" in the Windows start menu and click `Edit the system environment variables`.
 
@@ -110,7 +111,7 @@ Step 2: Click `Environment Variables...`
 
 ![image](./assets/Installation/Add_PATH_Windows_02.png)
 
-Step 3: Under `User variables for...`, double click `Path` variable.
+Step 3: Under `User variables for...`, double click the `Path` variable.
 
 ![image](./assets/Installation/Add_PATH_Windows_03.png)
 
@@ -165,7 +166,7 @@ Example outputs:
 ### 3.2 Set Password for `postgres` user
 By default, a `postgres` normal user will be created automatically after installing PostgreSQL in the Linux system. A password must be set for this user to connect to the default database.
 
-Step 1: Paste this command and enter a new password when prompt.
+Step 1: Paste this command and enter a new password when prompted.
 ```sh
 sudo passwd postgres
 ```
@@ -179,7 +180,7 @@ sudo service postgresql start
 
 ![image](./assets/Installation/Set_Password_02.png)
 
-Step 3: Switch to `postgres` system user, enter the password when prompt.
+Step 3: Switch to the `postgres` system user, enter the password when prompted.
 ```console
 su postgres
 ```
@@ -309,8 +310,11 @@ Example:
 - Microsoft Windows 10 Pro 10.0.19042 Build 19042
 - Ubuntu 20.04.3 LTS
 
+## Contributors
+**Author**<br>
+[TING WEI JING](tingweijingting2000@gmail.com)
+
 ## References
 - [Linux downloads (Ubuntu)](https://www.postgresql.org/download/linux/ubuntu/)
 - [Install PostgreSQL on WSL](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-database#install-postgresql)
 - [WSL commands and launch configurations](https://docs.microsoft.com/en-us/windows/wsl/wsl-config)
-
