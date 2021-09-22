@@ -883,12 +883,12 @@ Run these SQL statements to import the CSV data. Replace the `<input_parent_fold
 
 **SQL:**
 ```SQL
-COPY university(university_id, university_name, phone_num, email)
+COPY university
 FROM 'D:\Dev-Projects\machine-learning-fundamentals\data\university.csv'
 DELIMITER ','
 CSV HEADER;
 
-COPY intern_position(position_id, position_name, allowance)
+COPY intern_position
 FROM 'D:\Dev-Projects\machine-learning-fundamentals\data\intern_position.csv'
 DELIMITER ','
 CSV HEADER;
@@ -902,7 +902,8 @@ CSV HEADER;
 Keywords breakdown: <br>
 - `COPY ... FROM ...` - Copies data from a file to a table.
 - `DELIMITER` - Specifies the character that separates columns within each row (line) of the file.
-- `CSV HEADER` - Uses these keywords only if the CSV has the header and the header names match with table column names.
+- `CSV` - Indicates that the file is in csv format.
+- `HEADER` - Uses these keywords only if the CSV has the header and it will ignore the headers when import.
 
 You can run the `SELECT` SQL statement to check the imported data. All the values of `intern_duration` in the `intern` table are intended to be blank for the `UPDATE` query later.
 
