@@ -394,6 +394,7 @@ VALUES
     (1, 'Johor', '01', 'State'),
     (1, 'Kedah', '02', 'State'),
     (1, 'Kelantan', '03', 'State'),
+    (1, 'Wilayah Persekutuan Kuala Lumpur', '14', 'Federal Territory'),
     (3, 'Aceh', 'AC', 'Special Region'),
     (3, 'Bali', 'BA', 'Province'),
     (3, 'Bangka Belitung', 'BB', 'Province'),
@@ -403,16 +404,17 @@ RETURNING *;
 
 **Example output:**
 ```
- subcountry_id | country_id | subcountry_name | subcountry_code | subcountry_level
----------------+------------+-----------------+-----------------+------------------
-             8 |          1 | Johor           | 01              | State
-             9 |          1 | Kedah           | 02              | State
-            10 |          1 | Kelantan        | 03              | State
-            11 |          3 | Aceh            | AC              | Special Region
-            12 |          3 | Bali            | BA              | Province
-            13 |          3 | Bangka Belitung | BB              | Province
-            14 |          3 | Bengkulu        | BE              | Province
-(7 rows)
+ subcountry_id | country_id |         subcountry_name          | subcountry_code | subcountry_level
+---------------+------------+----------------------------------+-----------------+-------------------
+             1 |          1 | Johor                            | 01              | State
+             2 |          1 | Kedah                            | 02              | State
+             3 |          1 | Kelantan                         | 03              | State
+             4 |          1 | Wilayah Persekutuan Kuala Lumpur | 14              | Federal Territory
+             5 |          3 | Aceh                             | AC              | Special Region
+             6 |          3 | Bali                             | BA              | Province
+             7 |          3 | Bangka Belitung                  | BB              | Province
+             8 |          3 | Bengkulu                         | BE              | Province
+(8 rows)
 ```
 
 
