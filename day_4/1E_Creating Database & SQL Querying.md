@@ -249,6 +249,8 @@ In this hands-on tutorial, you will learn to use SQL to perform data definition 
 
 ![practice_1_ERD](./assets/1/practice_1_ERD.drawio.svg)
 
+Based on the ERD above, the relationship between these two tables is a one-to-many relationship. This relationship indicates that country may have zero or more than one subcountry in this database while one subcountry only belongs to one and only one country. The `yearly_change` value here is the approximation change of population per year.
+
 ### 1.0 `CREATE TABLE`
 
 `CREATE TABLE` keywords are used to create a new database table. The SQL statement below is the example of the `CREATE TABLE` statement which you have executed previously. This SQL statement will create a table named `country` with 5 columns.
@@ -779,6 +781,8 @@ DROP TABLE country;
 In these exercises, you will have to perform data definition and data manipulation on these 3 tables defined below:
 
 ![exercise_1_ERD](./assets/1/exercise_1_ERD.drawio.svg)
+
+From the ERD above, the relationship between the university table and the intern table is a one-to-many relationship. It is the same relationship applied to the intern table and intern_position table also.
 
 ### 1.0 Create database
 
