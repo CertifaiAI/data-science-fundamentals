@@ -1098,7 +1098,7 @@ From this tutorial, you should have learned:
 
 ## Contributors
 **Author**<br>
-[TING WEI JING](tingweijingting2000@gmail.com)
+[TING WEI JING](https://github.com/TINGWEIJING)
 
 ## Reference
 1. [PostgreSQLTutorial.com](https://www.postgresqltutorial.com/)

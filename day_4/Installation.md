@@ -312,7 +312,7 @@ Example:
 
 ## Contributors
 **Author**<br>
-[TING WEI JING](tingweijingting2000@gmail.com)
+[TING WEI JING](https://github.com/TINGWEIJING)
 
 ## References
 - [Linux downloads (Ubuntu)](https://www.postgresql.org/download/linux/ubuntu/)
