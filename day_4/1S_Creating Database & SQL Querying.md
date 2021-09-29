@@ -249,6 +249,8 @@ In this hands-on tutorial, you will learn to use SQL to perform data definition 
 
 ![practice_1_ERD](./assets/1/practice_1_ERD.drawio.svg)
 
+Based on the ERD above, the relationship between these two tables is a one-to-many relationship. This relationship indicates that country may have zero or more than one subcountry in this database while one subcountry only belongs to one and only one country. The `yearly_change` value here is the approximation change of population per year.
+
 ### 1.0 `CREATE TABLE`
 
 `CREATE TABLE` keywords are used to create a new database table. The SQL statement below is the example of the `CREATE TABLE` statement which you have executed previously. This SQL statement will create a table named `country` with 5 columns.
@@ -392,6 +394,7 @@ VALUES
     (1, 'Johor', '01', 'State'),
     (1, 'Kedah', '02', 'State'),
     (1, 'Kelantan', '03', 'State'),
+    (1, 'Wilayah Persekutuan Kuala Lumpur', '14', 'Federal Territory'),
     (3, 'Aceh', 'AC', 'Special Region'),
     (3, 'Bali', 'BA', 'Province'),
     (3, 'Bangka Belitung', 'BB', 'Province'),
@@ -401,16 +404,17 @@ RETURNING *;
 
 **Example output:**
 ```
- subcountry_id | country_id | subcountry_name | subcountry_code | subcountry_level
----------------+------------+-----------------+-----------------+------------------
-             8 |          1 | Johor           | 01              | State
-             9 |          1 | Kedah           | 02              | State
-            10 |          1 | Kelantan        | 03              | State
-            11 |          3 | Aceh            | AC              | Special Region
-            12 |          3 | Bali            | BA              | Province
-            13 |          3 | Bangka Belitung | BB              | Province
-            14 |          3 | Bengkulu        | BE              | Province
-(7 rows)
+ subcountry_id | country_id |         subcountry_name          | subcountry_code | subcountry_level
+---------------+------------+----------------------------------+-----------------+-------------------
+             1 |          1 | Johor                            | 01              | State
+             2 |          1 | Kedah                            | 02              | State
+             3 |          1 | Kelantan                         | 03              | State
+             4 |          1 | Wilayah Persekutuan Kuala Lumpur | 14              | Federal Territory
+             5 |          3 | Aceh                             | AC              | Special Region
+             6 |          3 | Bali                             | BA              | Province
+             7 |          3 | Bangka Belitung                  | BB              | Province
+             8 |          3 | Bengkulu                         | BE              | Province
+(8 rows)
 ```
 
 
@@ -780,6 +784,8 @@ In these exercises, you will have to perform data definition and data manipulati
 
 ![exercise_1_ERD](./assets/1/exercise_1_ERD.drawio.svg)
 
+From the ERD above, the relationship between the university table and the intern table is a one-to-many relationship. It is the same relationship applied to the intern table and intern_position table also.
+
 ### 1.0 Create database
 
 Firstly, create a new database with the name `exercise_1`.
@@ -1098,7 +1104,7 @@ From this tutorial, you should have learned:
 
 ## Contributors
 **Author**<br>
-[TING WEI JING](tingweijingting2000@gmail.com)
+[TING WEI JING](https://github.com/TINGWEIJING)
 
 ## Reference
 1. [PostgreSQLTutorial.com](https://www.postgresqltutorial.com/)
