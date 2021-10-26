@@ -8,9 +8,6 @@
     <a href="https://discord.com/invite/WsBFgNP">
         <img alt="Discord" src="https://img.shields.io/discord/699181979316387842?color=informational">
     </a>
-    <a href="https://classifai.ai">
-        <img alt="Documentation" src="https://img.shields.io/website/http/certifai.ai.svg?color=orange">
-    </a>
 </p>
 
 This repository contains Jupyter notebooks used for training during the hands-on session.
